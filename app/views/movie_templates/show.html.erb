@@ -5,7 +5,7 @@
 <a href="/movies">
   Go back
 </a><br>
-<a href="/movies/<%=@the_movie.id%>/delete" >
+<a href="/delete_movie/<%=@the_movie.id%>" >
   Delete movie
 </a>
 
@@ -22,7 +22,7 @@
   <input id="movie_duration" name="duration" value=<%=@the_movie.duration%>><br>
 
   <label for="movie_description">Description</label>
-  <textarea id="movie_description" name="description" rows=3 value=<%=@the_movie.description%>></textarea><br>
+  <textarea id="movie_description" name="description" rows=3><%=@the_movie.description%></textarea><br>
   
   <label for="movie_image">Image</label>
   <input id="movie_image" name="image" value=<%=@the_movie.image%>><br>
