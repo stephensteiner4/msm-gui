@@ -43,4 +43,23 @@ class ActorsController < ApplicationController
 
     redirect_to("/actors")
   end
+  
+  def modify
+    @modify_id = params.fetch("path_id")
+    @modify_name = params.fetch("name")
+    @modify_dob = params.fetch("dob")
+    @modify_bio = params.fetch("bio")
+    @modify_image = params.fetch("image")
+
+    actor_id = Actor.where({ :id => @modify_id}).at(0)
+
+    actor_id.name = @modify_name
+    actor_id.dob = @modify_dob
+    actor_id.bio = @modify_bio
+    actor_id.image = @modify_image
+
+    actor_id.save
+
+    redirect_to("/actors/#{@modify_id}")
+  end
 end

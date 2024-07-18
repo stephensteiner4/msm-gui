@@ -11,6 +11,24 @@
 
 <hr>
 
+<form action="/actors/<%=@the_actor.id%>/modify" method="post">
+  <label for="actor_name">Name</label>
+  <input id="actor_name" name="name" value="<%=@the_actor.name%>"><br>
+
+  <label for="actor_dob">Dob</label>
+  <input id="actor_dob" name="dob" type="date" value="<%=@the_actor.dob%>"><br>
+
+  <label for="actor_bio">Bio</label>
+  <textarea id="actor_bio" name="bio" rows="3" value="<%=@the_actor.bio%>"></textarea><br>
+  
+  <label for="actor_image">Image</label>
+  <input id="actor_image" name="image" value="<%=@the_actor.image%>"><br>
+
+  <button>Update actor</button>
+</form>
+
+<hr>
+
 <dl>
   <dt>
     Name

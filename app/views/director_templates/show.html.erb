@@ -11,6 +11,24 @@
 
 <hr>
 
+<form action="/directors/<%=@the_director.id%>/modify" method="post">
+  <label for="director_name">Name</label>
+  <input id="director_name" name="name" value="<%=@the_director.name%>"><br>
+
+  <label for="director_dob">Dob</label>
+  <input id="director_dob" name="dob" type="date" value="<%=@the_director.dob%>"><br>
+
+  <label for="director_bio">Bio</label>
+  <textarea id="director_bio" name="bio" rows="3" value="<%=@the_director.bio%>"></textarea><br>
+  
+  <label for="director_image">Image</label>
+  <input id="director_image" name="image" value="<%=@the_director.image%>"><br>
+
+  <button>Update director</button>
+</form>
+
+<hr>
+
 <dl>
   <dt>
     Name

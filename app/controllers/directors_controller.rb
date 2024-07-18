@@ -64,4 +64,23 @@ class DirectorsController < ApplicationController
 
     redirect_to("/directors")
   end
+
+  def modify
+    @modify_id = params.fetch("path_id")
+    @modify_name = params.fetch("name")
+    @modify_dob = params.fetch("dob")
+    @modify_bio = params.fetch("bio")
+    @modify_image = params.fetch("image")
+
+    director_id = Director.where({ :id => @modify_id}).at(0)
+
+    director_id.name = @modify_name
+    director_id.dob = @modify_dob
+    director_id.bio = @modify_bio
+    director_id.image = @modify_image
+
+    director_id.save
+
+    redirect_to("/directors/#{@modify_id}")
+  end
 end
