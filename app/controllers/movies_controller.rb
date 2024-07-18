@@ -37,4 +37,14 @@ class MoviesController < ApplicationController
 
     render({ :template => "movie_templates/index" })
   end
+
+  def destroy
+    @destroy_id = params.fetch("path_id")
+
+    movie_id = Movie.where({ :id => @destroy_id }).at(0)
+
+    movie_id.destroy
+
+    redirect_to("/movies")
+  end
 end

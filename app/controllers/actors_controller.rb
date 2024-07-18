@@ -33,4 +33,14 @@ class ActorsController < ApplicationController
 
     render({ :template => "actor_templates/index" })
   end
+
+  def destroy
+    @destroy_id = params.fetch("path_id")
+
+    actor_id = Actor.where({ :id => @destroy_id }).at(0)
+
+    actor_id.destroy
+
+    redirect_to("/actors")
+  end
 end
